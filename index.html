@@ -1,41 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
 
-    <title>Frontend Mentor | Blog preview card</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
-  </head>
-  <body>
-    Learning Published 21 Dec 2023 HTML & CSS foundations These languages are
-    the backbone of every website, defining structure, content, and
-    presentation. Greg Hooper
+  <title>Frontend Mentor | Blog preview card</title>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
-  </body>
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body
+  class="bg-primary flex flex-col justify-center items-center min-h-svh font-primary font-medium text-neutral-900 p-6">
+  <article
+    class=" bg-neutral-100 max-w-96 rounded-3xl p-6 grid grid-cols-1 gap-6 border border-neutral-900 shadow-article">
+    <img class="rounded-[10px]" src="assets/images/illustration-article.svg" alt="blog image description" />
+
+    <section class="grid grid-cols-1 gap-3">
+      <ul class="font-extrabold flex flex-wrap gap-1 text-sm">
+        <li class="bg-primary px-3 py-1 rounded">Learning</li>
+        <!-- <li class="bg-primary px-3 py-1 rounded">HTML</li> -->
+        <!-- <li class="bg-primary px-3 py-1 rounded">CSS</li> -->
+        <!-- <li class="bg-primary px-3 py-1 rounded">Semantic</li> -->
+        <!-- <li class="bg-primary px-3 py-1 rounded">Foundation</li> -->
+      </ul>
+      <time class="text-sm" datetime="2023-12-21">Published 21 Dec 2023</time>
+
+      <h1 class="text-xl font-extrabold hover:text-primary">HTML & CSS foundations</h1>
+      <p class="text-neutral-500">These languages are the backbone of every website, defining structure, content, and
+        presentation.</p>
+    </section>
+
+    <footer class="flex items-center gap-3">
+      <img class="w-8 h-8 rounded-full" src="assets/images/image-avatar.webp" />
+      <p class="font-extrabold text-sm">Greg Hooper</p>
+    </footer>
+  </article>
+
+  <div class="attribution my-3">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+      href="https://github.com/fresnizky/blog-preview-card">Federico Resnizky</a>.
+  </div>
+</body>
+
 </html>
