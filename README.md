@@ -1,93 +1,91 @@
-# Frontend Mentor - Blog preview card
+# Frontend Mentor - Blog preview card solution
 
-![Design preview for the Blog preview card coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this blog preview card and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - See hover and focus states for all interactive elements on the page
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+#### Desktop
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+![Desktop preview](./blog-preview-card-desktop.png)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+#### Mobile
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+![Mobile preview](./blog-preview-card-mobile.png)
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+### Links
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Solution URL: [GitHub](https://github.com/fresnizky/blog-preview-card)
+- Live Site URL: [Live Site](https://fresnizky.github.io/blog-preview-card/)
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+## My process
 
-## Building your project
+### Built with
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- Semantic HTML5 markup
+- Tailwind
+- Flexbox
+- CSS Grid
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### What I learned
 
-## Deploying your project
+I started adding Tailwind to the project, and configured the colors and fonts provided in the [Style Guide](./style-guide.md).
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+Then, I created the layout using generic tags like `div` and `span` with class names, and used ChatGPT to get suggestions of semantic HTML tags to use. With a few tweaks I got the final HTML layout for the challenge.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+I adapted the **Learning** label to be a tag list of possible topics for the blog post, so I used an `ul` with `flow` and `wrap`. You can check it out uncommenting the extra `li` in [index.html](index.html)
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+![Tags preview](./blog-preview-card-tags.png)
 
-## Create a custom `README.md`
+This challenge has this following extra challenge:
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+> The font sizes in this project a slightly smaller in the mobile layout. Find a way to reduce font size for smaller screens without using media queries.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+After some research I found the CSS `clamp()` function which is used for Fluid Typography. It can be used for most of the places where you can specify some kind of size. This is the syntax:
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+```css
+.style {
+  font-size: clamp(min, ideal, max);
+}
+```
 
-## Submitting your solution
+The `clamp()` function uses the ideal value to calculate the size, so it should be a relative value such as `vw`, `vh`, `rem`, `%`, etc. If the calculated value is less than the `min` value, it will use the `min` value. Similarly, if the calculated value is greater than the `max` value, it will use the `max` value. Therefore, both `min` and `max` should be absolute values.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+Let's take a look at an example from the solution:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+```css
+.lg {
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+}
+```
 
-## Sharing your solution
+This is used for the heading, it will have a size of `5vw`, but it won't resize below `20px` or greater than `24px`.
 
-There are multiple places you can share your solution:
+### Useful resources
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) - MDN article with the documentation of `clamp()`.
+- [Web.dev](https://web.dev/articles/min-max-clamp) - Web.dev article explaining how `min()`, `max()` and `clamp()` functions work with some helpful examples
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+## Author
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@fresnizky](https://www.frontendmentor.io/profile/fresnizky)
+- Twitter - [@fedearg79](https://www.twitter.com/fedearg79)
