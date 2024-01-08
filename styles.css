@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&display=swap");
+
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
@@ -444,7 +446,7 @@ video {
   display: none;
 }
 
-*, ::before, ::after {
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -494,7 +496,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -542,17 +544,4 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
-}
-
-.m-2 {
-  margin: 0.5rem;
-}
-
-.m-3 {
-  margin: 0.75rem;
-}
-
-.bg-slate-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
