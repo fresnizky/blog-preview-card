@@ -13,11 +13,9 @@ module.exports = {
         primary: ["Figtree", "sans-serif"],
       },
       fontSize: {
-        xl: "1.5rem",
-        lg: "1.25rem",
-        base: "1rem",
-        sm: "0.875rem",
-        xs: "0.75rem",
+        lg: "clamp(1.25rem, 5vw, 1.5rem)",
+        base: "clamp(0.875rem, 3.8vw, 1rem)",
+        sm: "clamp(0.75rem, 3vw, 0.875rem)",
       },
       boxShadow: {
         article: "8px 8px 0px 0px #000;",
